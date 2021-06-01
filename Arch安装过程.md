@@ -106,9 +106,8 @@ mount /dev/nvme0n1p4 /mnt/home 	//挂载个人分区到根目录
 
 ```
 pacman -Sy  			//将本地数据库与远程仓库进行同步
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-						//将服务器地址备份到本地
-reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist				//用reflector把最新的15个服务器按最快速度排序
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup  			//将服务器地址备份到本地
+reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist	//用reflector把最新的15个服务器按最快速度排序
 ```
 
 #### 安装基本系统及固件
@@ -134,7 +133,7 @@ pacman -Syy        //同步一下本地数据库
 ##### 配置系统时区
 
 ```
-ls -s /usr/share/zoneinfo/Asia/Shanghai  //查看可选时区
+ls -s /usr/share/zoneinfo/Asia/Shanghai  			//查看可选时区
 ln -s /usr/share/zoneinfo/Asia/Shanghai > /etc/localtime //创建软链接同步时区到本地localtime
 hwclock --systohc  //设置硬件时间
 ```
